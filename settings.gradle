@@ -1,0 +1,6 @@
+rootProject.name = "AndroidUtils"
+include ':app'
+include ':xloghelper'
+include ':interval-helper'
+include ':event-helper'
+include ':utils-helper'
