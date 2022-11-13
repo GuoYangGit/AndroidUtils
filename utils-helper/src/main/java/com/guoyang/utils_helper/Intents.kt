@@ -3,13 +3,11 @@
 package com.guoyang.utils_helper
 
 import android.Manifest.permission.CALL_PHONE
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Parcelable
 import androidx.annotation.RequiresPermission
 import androidx.core.os.bundleOf
 
@@ -26,31 +24,6 @@ inline fun <reified T> Context.intentOf(vararg pairs: Pair<String, *>): Intent =
  */
 inline fun <reified T> Context.intentOf(bundle: Bundle): Intent =
     Intent(this, T::class.java).putExtras(bundle)
-
-/**
- * 通过 Intent 的 extras 获取可空的参数
- * @param name 参数名
- */
-inline fun <reified T> Activity.intentExtras(name: String) = lazyField {
-    intent.extras?.get(name)
-}
-
-/**
- * 通过 Intent 的 extras 获取含默认值的参数
- * @param name 参数名
- * @param default 默认值
- */
-fun <T> Activity.intentExtras(name: String, default: T) = lazyField {
-    intent.extras?.get(name) ?: default
-}
-
-/**
- * 通过 Intent 的 extras 获取人为保证非空的参数
- * @param name 参数名
- */
-fun <T> Activity.safeIntentExtras(name: String) = lazyField {
-    checkNotNull(intent.extras?.get(name)) { "No intent value for key \"$name\"" }
-}
 
 /**
  * 拨号

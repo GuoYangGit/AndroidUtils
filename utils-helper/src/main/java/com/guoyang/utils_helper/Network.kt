@@ -116,9 +116,8 @@ class NetworkAvailableLiveData @RequiresPermission(ACCESS_NETWORK_STATE) constru
     }
 
     override fun setValue(value: Boolean?) {
-        if (this.value != value) {
-            super.setValue(value)
-        }
+        if (this.value == value) return
+        super.setValue(value)
     }
 
     private val networkRequest by lazy {

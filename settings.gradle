@@ -1,6 +1,6 @@
 rootProject.name = "AndroidUtils"
 include ':app'
+include ':base'
 include ':xloghelper'
-include ':interval-helper'
-include ':event-helper'
 include ':utils-helper'
+include ':viewbinding-helper'

@@ -35,10 +35,13 @@ dependencies {
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "androidx.startup:startup-runtime:1.1.1"
-    implementation "androidx.fragment:fragment-ktx:1.5.4"
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.0-alpha03"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.6.0-alpha03"
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    //lifecycle
+    def lifecycleVersion = '2.5.1'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-common-java8:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-process:${lifecycleVersion}"
     implementation "com.squareup.okio:okio:3.0.0"
 
     testImplementation 'junit:junit:4.13.2'

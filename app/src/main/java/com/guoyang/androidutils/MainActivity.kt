@@ -1,11 +1,21 @@
 package com.guoyang.androidutils
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.guoyang.androidutils.databinding.ActivityMainBinding
+import com.guoyang.utils_helper.*
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+    override fun initView(savedInstanceState: Bundle?) {
+        immersive(binding.toolBar)
+        binding.button.doOnDebouncingClick {
+            startActivity<InfoActivity>(
+                "name" to "guoyang",
+                "age" to 18,
+            )
+        }
+
+        AppForegroundObserver().observe(this) {
+            toast("当前状态: $it")
+        }
     }
 }

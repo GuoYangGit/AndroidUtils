@@ -2,6 +2,7 @@
 
 package com.guoyang.utils_helper
 
+import android.os.Parcelable
 import androidx.annotation.StringRes
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -15,24 +16,22 @@ fun <T : Fragment> T.withArguments(vararg pairs: Pair<String, *>) = apply {
 }
 
 /**
- * 通过 Fragment 的 argments 获取可空的参数
+ * 从序列化中检索到数据
+ * @param name 键名
+ * @param defValue 默认值
  */
-fun <T> Fragment.arguments(key: String) = lazyField {
-    arguments?.get(key)
-}
-
-/**
- * 通过 Fragment 的 argments 获取含默认值的参数
- */
-fun <T> Fragment.arguments(key: String, default: T) = lazyField {
-    arguments?.get(key) ?: default
-}
-
-/**
- * 通过 Fragment 的 argments 获取人为保证非空的参数
- */
-fun <T> Fragment.safeArguments(name: String) = lazyField {
-    checkNotNull(arguments?.get(name)) { "No intent value for key \"$name\"" }
+@JvmSynthetic
+inline fun <reified T> Fragment?.arguments(name: String? = null, defValue: T? = null) = lazyField {
+    lazyField {
+        val adjustName = name?: it.name
+        val result = when {
+            Parcelable::class.java.isAssignableFrom(T::class.java) -> this?.arguments?.getParcelable<Parcelable>(
+                adjustName
+            ) as? T
+            else -> this?.arguments?.getSerializable(adjustName) as? T
+        }
+        result ?: defValue ?: null as T
+    }
 }
 
 /**
