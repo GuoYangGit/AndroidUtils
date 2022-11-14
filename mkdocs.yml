@@ -1,0 +1,40 @@
+# https://mkdocs.zimoapps.com/
+site_name: 项目开发文档
+site_description: Android项目开发使用指南文档
+site_author: yang.guo
+copyright: Copyright &copy; 2022 - 2024 郭杨
+repo_name: GitHub # 仓库名称
+repo_url: https://github.com/GuoYangGit/slogan # 仓库链接
+
+theme: # 主题
+  name: material # 主题名称
+  custom_dir: docs/material # 主题目录
+  font: false # 是否使用字体
+  language: zh # 语言
+  palette: # 配色
+    scheme: drake # 配色方案
+    primary: white # 主色
+
+markdown_extensions: # markdown扩展
+  - toc: # 目录
+      permalink: true # 是否显示锚点
+  - admonition # 提示框
+  - pymdownx.details # 详情
+  - pymdownx.superfences # 代码块
+  - pymdownx.inlinehilite # 代码高亮
+  - pymdownx.tabbed # 选项卡
+  - pymdownx.tasklist: # 任务列表
+      custom_checkbox: true # 是否自定义复选框
+
+extra_css: # 额外css
+  - css/extra.css # 额外css文件
+
+docs_dir: 'docs' # 文档路径
+
+# 导航
+nav:
+  - 首页: Index.md
+  - Base模块: base.md
+  - utils模块: utils-helper.md
+  - viewbinding模块: viewbinding-helper.md
+  - xlog模块: xlog-helper.md

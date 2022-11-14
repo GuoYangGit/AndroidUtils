@@ -2,37 +2,8 @@
 
 package com.guoyang.utils_helper
 
-import android.os.Parcelable
 import androidx.annotation.StringRes
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-
-/**
- * 创建 Fragment 时伴随参数
- * @param pairs 参数, 例如: "key" to "value"
- */
-fun <T : Fragment> T.withArguments(vararg pairs: Pair<String, *>) = apply {
-    arguments = bundleOf(*pairs)
-}
-
-/**
- * 从序列化中检索到数据
- * @param name 键名
- * @param defValue 默认值
- */
-@JvmSynthetic
-inline fun <reified T> Fragment?.arguments(name: String? = null, defValue: T? = null) = lazyField {
-    lazyField {
-        val adjustName = name?: it.name
-        val result = when {
-            Parcelable::class.java.isAssignableFrom(T::class.java) -> this?.arguments?.getParcelable<Parcelable>(
-                adjustName
-            ) as? T
-            else -> this?.arguments?.getSerializable(adjustName) as? T
-        }
-        result ?: defValue ?: null as T
-    }
-}
 
 /**
  * 双击返回退出 App

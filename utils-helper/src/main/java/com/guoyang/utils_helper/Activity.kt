@@ -222,29 +222,3 @@ fun Context.isPermissionGranted(permission: String): Boolean =
  */
 fun Context.arePermissionsGranted(vararg permissions: String): Boolean =
     permissions.all { isPermissionGranted(it) }
-
-/**
- * 把 Context 作为 Activity 使用
- */
-fun Context.asActivity(): Activity? =
-    this as? Activity ?: (this as? ContextWrapper)?.baseContext?.asActivity()
-
-/**
- * 作用域的 this 不是 Activity 时获取 Context
- */
-inline val Context.context: Context get() = this
-
-/**
- * 作用域的 this 不是 Activity 时获取 Activity
- */
-inline val Activity.activity: Activity get() = this
-
-/**
- * 作用域的 this 不是 Activity 时获取 FragmentActivity
- */
-inline val FragmentActivity.fragmentActivity: FragmentActivity get() = this
-
-/**
- * 作用域的 this 不是 Activity 时获取 LifecycleOwner
- */
-inline val ComponentActivity.lifecycleOwner: LifecycleOwner get() = this
