@@ -33,7 +33,7 @@ docs_dir: 'docs' # 文档路径
 
 # 导航
 nav:
-  - 首页: Index.md
+  - 首页: index.md
   - Base模块: base.md
   - utils模块: utils-helper.md
   - viewbinding模块: viewbinding-helper.md
