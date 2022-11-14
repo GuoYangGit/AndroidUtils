@@ -1,10 +1,10 @@
 # https://mkdocs.zimoapps.com/
-site_name: 项目开发文档
-site_description: Android项目开发使用指南文档
+site_name: AndroidUtils
+site_description: 简化 Android 开发的 Kotlin 工具库，可以使代码更加简洁易读。
 site_author: yang.guo
 copyright: Copyright &copy; 2022 - 2024 郭杨
 repo_name: GitHub # 仓库名称
-repo_url: https://github.com/GuoYangGit/slogan # 仓库链接
+repo_url: https://github.com/GuoYangGit/AndroidUtils # 仓库链接
 
 theme: # 主题
   name: material # 主题名称
