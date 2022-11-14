@@ -1,6 +1,13 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.dokka'
+}
+
+dokkaHtml {
+    outputDirectory.set(file("$rootDir/docs/api/viewbinding-helper"))
+    suppressInheritedMembers.set(true)
+    moduleName.set("viewbinding-helper")
 }
 
 android {

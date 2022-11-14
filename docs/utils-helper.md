@@ -425,3 +425,7 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 | 用法                                                    | 作用                                              |
 | ------------------------------------------------------- | ------------------------------------------------- |
 | `by ComponentActivity/Fragment.applicationViewModels()` | 获取 Application 级别的 ViewModel 实例，支持 Hilt |
+
+## Api
+
+[具体查看](/api/utils-helper/)
