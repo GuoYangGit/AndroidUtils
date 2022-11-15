@@ -1,0 +1,2294 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="简化 Android 开发的 Kotlin 工具库，可以使代码更加简洁易读。">
+      
+      
+        <meta name="author" content="yang.guo">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>utils模块 - AndroidUtils</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="drake" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#utils-helper" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="AndroidUtils" class="md-header__button md-logo" aria-label="AndroidUtils" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AndroidUtils
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              utils模块
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/GuoYangGit/AndroidUtils" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AndroidUtils" class="md-nav__button md-logo" aria-label="AndroidUtils" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AndroidUtils
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/GuoYangGit/AndroidUtils" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base/" class="md-nav__link">
+        Base模块
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          utils模块
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        utils模块
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gradle" class="md-nav__link">
+    Gradle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activitykt" class="md-nav__link">
+    Activity.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applicationkt" class="md-nav__link">
+    Application.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appforegroundobserver" class="md-nav__link">
+    AppForegroundObserver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bluetoothkt" class="md-nav__link">
+    Bluetooth.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundlekt" class="md-nav__link">
+    Bundle.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clipboardkt" class="md-nav__link">
+    Clipboard.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crashkt" class="md-nav__link">
+    Crash.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datetimekt" class="md-nav__link">
+    DateTime.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deviceinfokt" class="md-nav__link">
+    DeviceInfo.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dimensionskt" class="md-nav__link">
+    Dimensions.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloadmanagerkt" class="md-nav__link">
+    DownloadManager.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encodekt" class="md-nav__link">
+    Encode.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encryptkt" class="md-nav__link">
+    Encrypt.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filekt" class="md-nav__link">
+    File.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flowkt" class="md-nav__link">
+    Flow.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fragmentkt" class="md-nav__link">
+    Fragment.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intentskt" class="md-nav__link">
+    Intents.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyboardkt" class="md-nav__link">
+    Keyboard.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecyclekt" class="md-nav__link">
+    Lifecycle.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadatakt" class="md-nav__link">
+    MetaData.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networkkt" class="md-nav__link">
+    Network.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pathskt" class="md-nav__link">
+    Paths.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resourcekt" class="md-nav__link">
+    Resource.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#romkt" class="md-nav__link">
+    Rom.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#screenkt" class="md-nav__link">
+    Screen.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shellkt" class="md-nav__link">
+    Shell.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statusbarkt" class="md-nav__link">
+    StatusBar.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringkt" class="md-nav__link">
+    String.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threadskt" class="md-nav__link">
+    Threads.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#toastkt" class="md-nav__link">
+    Toast.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewkt" class="md-nav__link">
+    View.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewmodelkt" class="md-nav__link">
+    ViewModel.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    Api
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../viewbinding-helper/" class="md-nav__link">
+        viewbinding模块
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xlog-helper/" class="md-nav__link">
+        xlog模块
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gradle" class="md-nav__link">
+    Gradle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activitykt" class="md-nav__link">
+    Activity.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applicationkt" class="md-nav__link">
+    Application.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appforegroundobserver" class="md-nav__link">
+    AppForegroundObserver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bluetoothkt" class="md-nav__link">
+    Bluetooth.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundlekt" class="md-nav__link">
+    Bundle.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clipboardkt" class="md-nav__link">
+    Clipboard.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crashkt" class="md-nav__link">
+    Crash.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datetimekt" class="md-nav__link">
+    DateTime.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deviceinfokt" class="md-nav__link">
+    DeviceInfo.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dimensionskt" class="md-nav__link">
+    Dimensions.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloadmanagerkt" class="md-nav__link">
+    DownloadManager.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encodekt" class="md-nav__link">
+    Encode.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encryptkt" class="md-nav__link">
+    Encrypt.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filekt" class="md-nav__link">
+    File.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flowkt" class="md-nav__link">
+    Flow.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fragmentkt" class="md-nav__link">
+    Fragment.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intentskt" class="md-nav__link">
+    Intents.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyboardkt" class="md-nav__link">
+    Keyboard.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecyclekt" class="md-nav__link">
+    Lifecycle.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadatakt" class="md-nav__link">
+    MetaData.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networkkt" class="md-nav__link">
+    Network.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pathskt" class="md-nav__link">
+    Paths.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resourcekt" class="md-nav__link">
+    Resource.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#romkt" class="md-nav__link">
+    Rom.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#screenkt" class="md-nav__link">
+    Screen.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shellkt" class="md-nav__link">
+    Shell.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statusbarkt" class="md-nav__link">
+    StatusBar.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringkt" class="md-nav__link">
+    String.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threadskt" class="md-nav__link">
+    Threads.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#toastkt" class="md-nav__link">
+    Toast.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewkt" class="md-nav__link">
+    View.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewmodelkt" class="md-nav__link">
+    ViewModel.kt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    Api
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/GuoYangGit/AndroidUtils/edit/master/docs/utils-helper.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="utils-helper">Utils-helper<a class="headerlink" href="#utils-helper" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>是一个简化 <code>Android</code> 开发的 <code>Kotlin</code> 工具库，可以使代码更加简洁易读。<strong>目前有超过 500 个常用方法或属性，能有效提高开发效率</strong>。</p>
+</blockquote>
+<h2 id="gradle">Gradle<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h2>
+<p>在根目录的 <code>build.gradle</code> 添加：</p>
+<div class="highlight"><pre><span></span><code><span class="n">allprojects</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">repositories</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// ...</span><span class="w"></span>
+<span class="w">        </span><span class="n">maven</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="s1">&#39;https://www.jitpack.io&#39;</span><span class="w"> </span><span class="o">}</span><span class="w"></span>
+<span class="w">    </span><span class="o">}</span><span class="w"></span>
+<span class="o">}</span><span class="w"></span>
+</code></pre></div>
+<p>添加依赖：</p>
+<div class="highlight"><pre><span></span><code><span class="n">api</span><span class="w"> </span><span class="s2">&quot;com.github.GuoYangGit.AndroidUtils:utils-helper:xxx&quot;</span><span class="w"></span>
+</code></pre></div>
+<blockquote>
+<p>下面用法中含有方括号 <code>[]</code> 的参数是可选的。</p>
+</blockquote>
+<h2 id="activitykt">Activity.kt<a class="headerlink" href="#activitykt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[Activity].startActivity&lt;T&gt;("id" to 5)</code></td>
+<td>启动 Activity</td>
+</tr>
+<tr>
+<td><code>Activity.finishWithResult("id" to 5, "name" to name)</code></td>
+<td>关闭 Activity 并返回结果</td>
+</tr>
+<tr>
+<td><code>activityList</code></td>
+<td>获取 Activity 栈链表</td>
+</tr>
+<tr>
+<td><code>topActivity</code></td>
+<td>获取栈顶 Activity</td>
+</tr>
+<tr>
+<td><code>isActivityExistsInStack&lt;SomeOtherActivity&gt;</code></td>
+<td>判断 Activity 是否存在栈中</td>
+</tr>
+<tr>
+<td><code>finishActivity&lt;SomeOtherActivity&gt;</code></td>
+<td>结束某个 Activity</td>
+</tr>
+<tr>
+<td><code>finishToActivity&lt;SomeOtherActivity&gt;</code></td>
+<td>结束到某个 Activity</td>
+</tr>
+<tr>
+<td><code>finishAllActivities</code></td>
+<td>结束所有 Activity</td>
+</tr>
+<tr>
+<td><code>finishAllActivitiesExcept&lt;T&gt;</code></td>
+<td>结束除某个 Activity 之外的所有 Activity</td>
+</tr>
+<tr>
+<td><code>finishAllActivitiesExceptNewest</code></td>
+<td>结束除最新 Activity 之外的所有 Activity</td>
+</tr>
+<tr>
+<td><code>ComponentActivity.pressBackTwiceToExitApp(toastText, [delayMillis])</code></td>
+<td>双击返回退出 App</td>
+</tr>
+<tr>
+<td><code>ComponentActivity.pressBackTwiceToExitApp([delayMillis]) {...}</code></td>
+<td>双击返回退出 App，自定义 Toast</td>
+</tr>
+<tr>
+<td><code>ComponentActivity.pressBackToNotExit()</code></td>
+<td>点击返回不退出 App</td>
+</tr>
+<tr>
+<td><code>ComponentActivity.doOnBackPressed {...}</code></td>
+<td>监听手机的返回事件</td>
+</tr>
+<tr>
+<td><code>Context.isPermissionGranted(permission)</code></td>
+<td>判断是否有权限</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applicationkt">Application.kt<a class="headerlink" href="#applicationkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>application</code></td>
+<td>获取 Application</td>
+</tr>
+<tr>
+<td><code>packageName</code></td>
+<td>获取包名</td>
+</tr>
+<tr>
+<td><code>appName</code></td>
+<td>获取 App 名字</td>
+</tr>
+<tr>
+<td><code>appIcon</code></td>
+<td>获取 App 图标</td>
+</tr>
+<tr>
+<td><code>appVersionName</code></td>
+<td>获取 App 版本号</td>
+</tr>
+<tr>
+<td><code>appVersionCode</code></td>
+<td>获取 App 版本码</td>
+</tr>
+<tr>
+<td><code>isAppDebug</code></td>
+<td>判断 App 是否是 Debug 版本</td>
+</tr>
+<tr>
+<td><code>isAppDarkMode</code></td>
+<td>判断 App 是否是夜间模式</td>
+</tr>
+<tr>
+<td><code>launchAppDetailsSettings</code></td>
+<td>启动 App 详情设置</td>
+</tr>
+<tr>
+<td><code>relaunchApp([killProcess])</code></td>
+<td>重启 App</td>
+</tr>
+</tbody>
+</table>
+<h2 id="appforegroundobserver">AppForegroundObserver<a class="headerlink" href="#appforegroundobserver" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AppForegroundObserver {...}</code></td>
+<td>App 前后台切换监听</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bluetoothkt">Bluetooth.kt<a class="headerlink" href="#bluetoothkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isBluetoothEnabled</code></td>
+<td>判断蓝牙是否开启</td>
+</tr>
+<tr>
+<td><code>BluetoothStateLiveData {...}</code></td>
+<td>监听蓝牙设备的连接状态</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bundlekt">Bundle.kt<a class="headerlink" href="#bundlekt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>by Activity.bundle([default], [key])</code></td>
+<td>通过 Intent 的 extras 获取含默认值的参数</td>
+</tr>
+<tr>
+<td><code>by Fragment.bundle([default], [key])</code></td>
+<td>通过 Fragment 的 argments 获取含默认值的参数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="clipboardkt">Clipboard.kt<a class="headerlink" href="#clipboardkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CharSequence/Uri/Intent.copyToClipboard([label])</code></td>
+<td>复制到剪贴板</td>
+</tr>
+<tr>
+<td><code>getTextFromClipboard()</code></td>
+<td>获取剪贴板的文本</td>
+</tr>
+<tr>
+<td><code>clearClipboard()</code></td>
+<td>清理剪贴板</td>
+</tr>
+<tr>
+<td><code>doOnClipboardChanged(listener)</code></td>
+<td>监听剪贴板的变化</td>
+</tr>
+<tr>
+<td><code>ClipboardManager.OnPrimaryClipChangedListener.cancel()</code></td>
+<td>移除剪贴板监听器</td>
+</tr>
+</tbody>
+</table>
+<h2 id="crashkt">Crash.kt<a class="headerlink" href="#crashkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>saveCrashLogLocally([dirPath])</code></td>
+<td>保存崩溃日志到本地</td>
+</tr>
+<tr>
+<td><code>handleUncaughtException {...}</code></td>
+<td>处理未捕获的异常</td>
+</tr>
+<tr>
+<td><code>handleMainThreadException  {...}</code></td>
+<td>处理主线程的异常</td>
+</tr>
+</tbody>
+</table>
+<h2 id="datetimekt">DateTime.kt<a class="headerlink" href="#datetimekt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Instant.format(pattern, [zone], [locale])</code></td>
+<td>Instant 转字符串</td>
+</tr>
+<tr>
+<td><code>LocalDateTime.format(pattern, [locale])</code></td>
+<td>LocalDateTime 转字符串</td>
+</tr>
+<tr>
+<td><code>LocalDate.format(pattern, [locale])</code></td>
+<td>LocalDate 转字符串</td>
+</tr>
+<tr>
+<td><code>LocalDateTime.toInstant(pattern, [zone])</code></td>
+<td>LocalDateTime 转 Instant</td>
+</tr>
+<tr>
+<td><code>Instant.toLocalDateTime(pattern, [zone])</code></td>
+<td>Instant 转 LocalDateTime</td>
+</tr>
+<tr>
+<td><code>LocalDateTime.toEpochSecond(pattern, [zone])</code></td>
+<td>LocalDateTime 转秒数</td>
+</tr>
+<tr>
+<td><code>LocalDateTime.toEpochMilli(pattern, [zone])</code></td>
+<td>LocalDateTime 转毫秒</td>
+</tr>
+<tr>
+<td><code>String.toInstant(pattern, [zone])</code></td>
+<td>字符串转 Instant</td>
+</tr>
+<tr>
+<td><code>String.toLocalDateTime(pattern)</code></td>
+<td>字符串转 LocalDateTime</td>
+</tr>
+<tr>
+<td><code>String.toLocalDate(pattern)</code></td>
+<td>字符串转 LocalDate</td>
+</tr>
+<tr>
+<td><code>String.toEpochMilliseconds(pattern)</code></td>
+<td>字符串转毫秒</td>
+</tr>
+<tr>
+<td><code>String.toEpochSeconds(pattern)</code></td>
+<td>字符串转秒数</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.isToday([zone])</code></td>
+<td>判断是不是今天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.isYesterday([zone])</code></td>
+<td>判断是不是昨天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.firstDayOfYear()</code></td>
+<td>今年的第一天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.lastDayOfYear()</code></td>
+<td>今年的最后一天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.firstDayOfNextYear()</code></td>
+<td>名年的第一天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.firstDayOfLastYear()</code></td>
+<td>去年的第一天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.firstDayOfMonth()</code></td>
+<td>这个月的第一天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.lastDayOfMonth()</code></td>
+<td>这个月的最后一天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.firstDayOfNextMonth()</code></td>
+<td>下个月的第一天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.firstDayOfLastMonth()</code></td>
+<td>上个月的第一天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.firstInMonth(dayOfWeek)</code></td>
+<td>这个月的第一个周几</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.lastInMonth(dayOfWeek)</code></td>
+<td>这个月的最后一个周几</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.dayOfWeekInMonth(ordinal, dayOfWeek)</code></td>
+<td>这个月的第几个周几</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.next(dayOfWeek)</code></td>
+<td>下一个周几，不包含今天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.nextOrSame(dayOfWeek)</code></td>
+<td>下一个周几，包含今天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.previous(dayOfWeek)</code></td>
+<td>上一个周几，不包含今天</td>
+</tr>
+<tr>
+<td><code>LocalDateTime/LocalDate.previousOrSame(dayOfWeek)</code></td>
+<td>上一个周几，包含今天</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deviceinfokt">DeviceInfo.kt<a class="headerlink" href="#deviceinfokt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sdkVersionName</code></td>
+<td>获取设备系统版本号</td>
+</tr>
+<tr>
+<td><code>sdkVersionCode</code></td>
+<td>获取设备系统版本码</td>
+</tr>
+<tr>
+<td><code>deviceManufacturer</code></td>
+<td>获取设备厂商</td>
+</tr>
+<tr>
+<td><code>deviceModel</code></td>
+<td>获取设备型号</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dimensionskt">Dimensions.kt<a class="headerlink" href="#dimensionskt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Int/Long/Float/Double.dp</code></td>
+<td>dp 转 px</td>
+</tr>
+<tr>
+<td><code>Int/Long/Float/Double.sp</code></td>
+<td>sp 转 px</td>
+</tr>
+<tr>
+<td><code>Int/Long/Float/Double.pxToDp()</code></td>
+<td>px 转 dp</td>
+</tr>
+<tr>
+<td><code>Int/Long/Float/Double.pxToSp()</code></td>
+<td>px 转 sp</td>
+</tr>
+</tbody>
+</table>
+<h2 id="downloadmanagerkt">DownloadManager.kt<a class="headerlink" href="#downloadmanagerkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>download(url) {...}</code></td>
+<td>使用原生 DownloadManager 下载文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="encodekt">Encode.kt<a class="headerlink" href="#encodekt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ByteArray.base64Encode([flag])</code></td>
+<td>Base64 编码</td>
+</tr>
+<tr>
+<td><code>ByteArray.base64EncodeToString([flag])</code></td>
+<td>Base64 编码</td>
+</tr>
+<tr>
+<td><code>String.base64Decode([flag])</code></td>
+<td>Base64 解码</td>
+</tr>
+<tr>
+<td><code>String.urlEncode(enc)</code></td>
+<td>Url 编码</td>
+</tr>
+<tr>
+<td><code>String.urlDecode(enc)</code></td>
+<td>Url 解码</td>
+</tr>
+</tbody>
+</table>
+<h2 id="encryptkt">Encrypt.kt<a class="headerlink" href="#encryptkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>String/ByteArray.encrtpyMD5()</code></td>
+<td>MD5 加密</td>
+</tr>
+<tr>
+<td><code>String/ByteArray.encrtpySHA1()</code></td>
+<td>SHA1 加密</td>
+</tr>
+<tr>
+<td><code>String/ByteArray.encrtpySHA256()</code></td>
+<td>SHA256 加密</td>
+</tr>
+<tr>
+<td><code>String/ByteArray.encrtpySHA512()</code></td>
+<td>SHA512 加密</td>
+</tr>
+<tr>
+<td><code>String/ByteArray.encrtpyHmacSHA1(key)</code></td>
+<td>HMAC-SHA1 加密</td>
+</tr>
+<tr>
+<td><code>String/ByteArray.encrtpyHmacSHA256(key)</code></td>
+<td>HMAC-SHA256 加密</td>
+</tr>
+<tr>
+<td><code>String/ByteArray.encrtpyHmacSHA512(key)</code></td>
+<td>HMAC-SHA512 加密</td>
+</tr>
+</tbody>
+</table>
+<h2 id="filekt">File.kt<a class="headerlink" href="#filekt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>File.isExistOrCreateNewFile()</code></td>
+<td>判断是否存在，不存在则创建新文件</td>
+</tr>
+<tr>
+<td><code>File?.isExistOrCreateNewDir()</code></td>
+<td>判断是否存在，不存在则创建新文件夹</td>
+</tr>
+<tr>
+<td><code>File.createNewFileAfterDeleteExist()</code></td>
+<td>创建新文件，如果文件已存在则先删除</td>
+</tr>
+<tr>
+<td><code>File.rename(name)</code></td>
+<td>重命名文件</td>
+</tr>
+<tr>
+<td><code>File.mimeType</code></td>
+<td>获取文件的 MIME 类型</td>
+</tr>
+<tr>
+<td><code>fileSeparator</code></td>
+<td>获取文件分隔符</td>
+</tr>
+<tr>
+<td><code>File.print {...}</code></td>
+<td>打印内容到文件</td>
+</tr>
+<tr>
+<td><code>File.checkMD5(md5)</code></td>
+<td>检测 MD5 的值</td>
+</tr>
+<tr>
+<td><code>File.checkSHA1(sha1)</code></td>
+<td>检测 SHA1 的值</td>
+</tr>
+<tr>
+<td><code>File.checkSHA256(sha256)</code></td>
+<td>检测 SHA256 的值</td>
+</tr>
+<tr>
+<td><code>File.checkSHA512(sha512)</code></td>
+<td>检测 SHA512 的值</td>
+</tr>
+<tr>
+<td><code>File.checkHmacSHA1(key, hmacSHA1)</code></td>
+<td>检测 HMAC-SHA1 的值</td>
+</tr>
+<tr>
+<td><code>File.checkHmacSHA256(key, hmacSHA256)</code></td>
+<td>检测 HMAC-SHA256 的值</td>
+</tr>
+<tr>
+<td><code>File.checkHmacSHA512(key, hmacSHA512)</code></td>
+<td>检测 HMAC-SHA512 的值</td>
+</tr>
+<tr>
+<td><code>File.calculateMD5()</code></td>
+<td>计算 MD5 的值</td>
+</tr>
+<tr>
+<td><code>File.calculateSHA1()</code></td>
+<td>计算 SHA1 的值</td>
+</tr>
+<tr>
+<td><code>File.calculateSHA256()</code></td>
+<td>计算 SHA256 的值</td>
+</tr>
+<tr>
+<td><code>File.calculateSHA512()</code></td>
+<td>计算 SHA512 的值</td>
+</tr>
+<tr>
+<td><code>File.calculateHmacSHA1(key)</code></td>
+<td>计算 HMAC-SHA1 的值</td>
+</tr>
+<tr>
+<td><code>File.calculateHmacSHA256(key)</code></td>
+<td>计算 HMAC-SHA256 的值</td>
+</tr>
+<tr>
+<td><code>File.calculateHmacSHA512(key)</code></td>
+<td>计算 HMAC-SHA512 的值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="flowkt">Flow.kt<a class="headerlink" href="#flowkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Flow&lt;T&gt;.launchAndCollectIn(owner, [minActiveState]) {...}</code></td>
+<td>启动 lifecycleScope 并收集数据</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fragmentkt">Fragment.kt<a class="headerlink" href="#fragmentkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Fragment.withArguments("id" to 5)</code></td>
+<td>创建 Fragment 时伴随参数</td>
+</tr>
+<tr>
+<td><code>Fragment.pressBackTwiceToExitApp(toastText, [delayMillis])</code></td>
+<td>双击返回退出 App</td>
+</tr>
+<tr>
+<td><code>Fragment.pressBackTwiceToExitApp([delayMillis]) {...}</code></td>
+<td>双击返回退出 App，自定义 Toast</td>
+</tr>
+<tr>
+<td><code>Fragment.pressBackToNotExit()</code></td>
+<td>点击返回不退出 App</td>
+</tr>
+<tr>
+<td><code>Fragment.doOnBackPressed {...}</code></td>
+<td>监听手机的返回事件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="intentskt">Intents.kt<a class="headerlink" href="#intentskt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>intentOf&lt;SomeOtherActivity&gt;("id" to 5)</code></td>
+<td>创建 Intent</td>
+</tr>
+<tr>
+<td><code>by Activity.intentExtras(key)</code></td>
+<td>通过 Intent 的 extras 获取可空的参数</td>
+</tr>
+<tr>
+<td><code>by Activity.intentExtras(key, default)</code></td>
+<td>通过 Intent 的 extras 获取含默认值的参数</td>
+</tr>
+<tr>
+<td><code>by Activity.safeIntentExtras(key)</code></td>
+<td>通过 Intent 的 extras 获取人为保证非空的参数</td>
+</tr>
+<tr>
+<td><code>dial(phoneNumber)</code></td>
+<td>拨号</td>
+</tr>
+<tr>
+<td><code>makeCall(phoneNumber)</code></td>
+<td>打电话</td>
+</tr>
+<tr>
+<td><code>sendSMS(phoneNumber, content)</code></td>
+<td>发短信</td>
+</tr>
+<tr>
+<td><code>browse(url, [newTask])</code></td>
+<td>打开网页</td>
+</tr>
+<tr>
+<td><code>email(email, [subject], [text])</code></td>
+<td>发送邮件</td>
+</tr>
+<tr>
+<td><code>installAPK(uri)</code></td>
+<td>安装 APK</td>
+</tr>
+<tr>
+<td><code>Intent.clearTask()</code></td>
+<td>添加 FLAG_ACTIVITY_CLEAR_TASK 的 flag</td>
+</tr>
+<tr>
+<td><code>Intent.clearTop()</code></td>
+<td>添加 FLAG_ACTIVITY_CLEAR_TOP 的 flag</td>
+</tr>
+<tr>
+<td><code>Intent.newDocument()</code></td>
+<td>添加 FLAG_ACTIVITY_NEW_DOCUMENT 的 flag</td>
+</tr>
+<tr>
+<td><code>Intent.excludeFromRecents()</code></td>
+<td>添加 FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS 的 flag</td>
+</tr>
+<tr>
+<td><code>Intent.multipleTask()</code></td>
+<td>添加 FLAG_ACTIVITY_MULTIPLE_TASK 的 flag</td>
+</tr>
+<tr>
+<td><code>Intent.newTask()</code></td>
+<td>添加 FLAG_ACTIVITY_NEW_TASK 的 flag</td>
+</tr>
+<tr>
+<td><code>Intent.noAnimation()</code></td>
+<td>添加 FLAG_ACTIVITY_NO_ANIMATION 的 flag</td>
+</tr>
+<tr>
+<td><code>Intent.noHistory()</code></td>
+<td>添加 FLAG_ACTIVITY_NO_HISTORY 的 flag</td>
+</tr>
+<tr>
+<td><code>Intent.singleTop()</code></td>
+<td>添加 FLAG_ACTIVITY_SINGLE_TOP 的 flag</td>
+</tr>
+<tr>
+<td><code>Intent.grantReadPermission()</code></td>
+<td>添加 FLAG_GRANT_READ_URI_PERMISSION 的 flag</td>
+</tr>
+</tbody>
+</table>
+<h2 id="keyboardkt">Keyboard.kt<a class="headerlink" href="#keyboardkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>View.showKeyboard()</code></td>
+<td>显示键盘</td>
+</tr>
+<tr>
+<td><code>View.hideKeyboard()</code></td>
+<td>隐藏键盘</td>
+</tr>
+<tr>
+<td><code>View.toggleKeyboard()</code></td>
+<td>切换键盘显示状态</td>
+</tr>
+<tr>
+<td><code>View.isKeyboardVisible</code></td>
+<td>判断键盘是否可见</td>
+</tr>
+<tr>
+<td><code>View.keyboardHeight</code></td>
+<td>获取键盘高度</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lifecyclekt">Lifecycle.kt<a class="headerlink" href="#lifecyclekt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Application.doOnActivityLifecycle(...)</code></td>
+<td>监听所有 Activity 的生命周期</td>
+</tr>
+<tr>
+<td><code>LifecycleOwner.doOnLifecycle {...}</code></td>
+<td>监听当前 Activity 或 Fragment 生命周期</td>
+</tr>
+<tr>
+<td><code>Fragment.doOnViewLifecycle {...}</code></td>
+<td>监听当前 Fragment 视图的生命周期</td>
+</tr>
+</tbody>
+</table>
+<h2 id="metadatakt">MetaData.kt<a class="headerlink" href="#metadatakt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>applicationMetaDataOf(name)</code></td>
+<td>获取 application 的 meta-data 值</td>
+</tr>
+<tr>
+<td><code>activityMetaDataOf&lt;T&gt;(name)</code></td>
+<td>获取 activity 的 meta-data 值</td>
+</tr>
+<tr>
+<td><code>serviceMetaDataOf&lt;T&gt;(name)</code></td>
+<td>获取 service 的 meta-data 值</td>
+</tr>
+<tr>
+<td><code>providerMetaDataOf&lt;T&gt;(name)</code></td>
+<td>获取 provider 的 meta-data 值</td>
+</tr>
+<tr>
+<td><code>receiverMetaDataOf&lt;T&gt;(name)</code></td>
+<td>获取 receiver 的 meta-data 值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="networkkt">Network.kt<a class="headerlink" href="#networkkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isNetworkAvailable</code></td>
+<td>判断网络是否可用</td>
+</tr>
+<tr>
+<td><code>isWifiConnected</code></td>
+<td>判断网络是否是  Wifi</td>
+</tr>
+<tr>
+<td><code>isMobileData</code></td>
+<td>判断网络是否是移动数据</td>
+</tr>
+<tr>
+<td><code>isWifiEnabled</code></td>
+<td>判断 Wifi 是否打开</td>
+</tr>
+<tr>
+<td><code>ScanResult.is24GHz</code></td>
+<td>判断扫描结果是否是 2.4GHz</td>
+</tr>
+<tr>
+<td><code>ScanResult.is5GHz</code></td>
+<td>判断扫描结果是否是 5GHz</td>
+</tr>
+<tr>
+<td><code>NetworkAvailableLiveData()</code></td>
+<td>监听网络状态改变</td>
+</tr>
+<tr>
+<td><code>WifiListLiveData()</code></td>
+<td>监听扫描的 Wifi 列表</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pathskt">Paths.kt<a class="headerlink" href="#pathskt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cacheDirPath</code></td>
+<td>获取应用缓存路径（优先外存）</td>
+</tr>
+<tr>
+<td><code>externalCacheDirPath</code></td>
+<td>获取外存应用缓存路径</td>
+</tr>
+<tr>
+<td><code>externalFilesDirPath</code></td>
+<td>获取外存应用文件路径</td>
+</tr>
+<tr>
+<td><code>externalPicturesDirPath</code></td>
+<td>获取外存应用图片路径</td>
+</tr>
+<tr>
+<td><code>externalMoviesDirPath</code></td>
+<td>获取外存应用视频路径</td>
+</tr>
+<tr>
+<td><code>externalDownloadsDirPath</code></td>
+<td>获取外存应用下载路径</td>
+</tr>
+<tr>
+<td><code>externalDocumentsDirPath</code></td>
+<td>获取外存应用文档路径</td>
+</tr>
+<tr>
+<td><code>externalMusicDirPath</code></td>
+<td>获取外存应用音乐路径</td>
+</tr>
+<tr>
+<td><code>externalPodcastsDirPath</code></td>
+<td>获取外存应用播客路径</td>
+</tr>
+<tr>
+<td><code>externalRingtonesDirPath</code></td>
+<td>获取外存应用铃声路径</td>
+</tr>
+<tr>
+<td><code>externalAlarmsDirPath</code></td>
+<td>获取外存应用闹铃路径</td>
+</tr>
+<tr>
+<td><code>externalNotificationsDirPath</code></td>
+<td>获取外存应用通知路径</td>
+</tr>
+<tr>
+<td><code>internalCacheDirPath</code></td>
+<td>获取内存应用缓存路径</td>
+</tr>
+<tr>
+<td><code>internalFileDirPath</code></td>
+<td>获取内存应用文件路径</td>
+</tr>
+<tr>
+<td><code>internalPicturesDirPath</code></td>
+<td>获取内存应用图片路径</td>
+</tr>
+<tr>
+<td><code>internalMoviesDirPath</code></td>
+<td>获取内存应用视频路径</td>
+</tr>
+<tr>
+<td><code>internalDownloadsDirPath</code></td>
+<td>获取内存应用下载路径</td>
+</tr>
+<tr>
+<td><code>internalDocumentsDirPath</code></td>
+<td>获取内存应用文档路径</td>
+</tr>
+<tr>
+<td><code>internalMusicDirPath</code></td>
+<td>获取内存应用音乐路径</td>
+</tr>
+<tr>
+<td><code>internalPodcastsDirPath</code></td>
+<td>获取内存应用播客路径</td>
+</tr>
+<tr>
+<td><code>internalRingtonesDirPath</code></td>
+<td>获取内存应用铃声路径</td>
+</tr>
+<tr>
+<td><code>internalNotificationsDirPath</code></td>
+<td>获取内存应用通知路径</td>
+</tr>
+<tr>
+<td><code>isExternalStorageWritable</code></td>
+<td>判断外存是否可读写</td>
+</tr>
+<tr>
+<td><code>isExternalStorageReadable</code></td>
+<td>判断外存是否可读</td>
+</tr>
+<tr>
+<td><code>isExternalStorageRemovable</code></td>
+<td>判断外存是否可移除</td>
+</tr>
+</tbody>
+</table>
+<h2 id="resourcekt">Resource.kt<a class="headerlink" href="#resourcekt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>View.getString(id)</code></td>
+<td>根据 id 获取字符串</td>
+</tr>
+<tr>
+<td><code>Context/Fragment/View.getDimension(id)</code></td>
+<td>根据 id 获取数字</td>
+</tr>
+<tr>
+<td><code>Context/Fragment/View.getCompatColor(id)</code></td>
+<td>根据 id 获取颜色</td>
+</tr>
+<tr>
+<td><code>Context/Fragment/View.getCompatDrawable(id)</code></td>
+<td>根据 id 获取 Drawable</td>
+</tr>
+<tr>
+<td><code>Context/Fragment/View.getCompatFont(id)</code></td>
+<td>根据 id 获取字体</td>
+</tr>
+<tr>
+<td><code>parseColor(colorString)</code></td>
+<td>根据字符串获取颜色</td>
+</tr>
+</tbody>
+</table>
+<h2 id="romkt">Rom.kt<a class="headerlink" href="#romkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isXiaomiRom</code></td>
+<td>判断是否是小米 Rom</td>
+</tr>
+<tr>
+<td><code>isHuaweiRom</code></td>
+<td>判断是否是华为 Rom</td>
+</tr>
+<tr>
+<td><code>isOppoRom</code></td>
+<td>判断是否是 OPPO Rom</td>
+</tr>
+<tr>
+<td><code>isVivoRom</code></td>
+<td>判断是否是 vivo Rom</td>
+</tr>
+<tr>
+<td><code>isOnePlusRom</code></td>
+<td>判断是否是一加 Rom</td>
+</tr>
+<tr>
+<td><code>isSmartisanRom</code></td>
+<td>判断是否是锤子 Rom</td>
+</tr>
+<tr>
+<td><code>isMeiZuRom</code></td>
+<td>判断是否是魅族 Rom</td>
+</tr>
+<tr>
+<td><code>isSamsungRom</code></td>
+<td>判断是否是三星 Rom</td>
+</tr>
+<tr>
+<td><code>isGoogleRom</code></td>
+<td>判断是否是谷歌 Rom</td>
+</tr>
+<tr>
+<td><code>isSonyRom</code></td>
+<td>判断是否是索尼 Rom</td>
+</tr>
+<tr>
+<td><code>isRomOf(names)</code></td>
+<td>判断是否是某个 Rom</td>
+</tr>
+<tr>
+<td><code>isHarmonyOS</code></td>
+<td>判断是否是鸿蒙系统</td>
+</tr>
+</tbody>
+</table>
+<h2 id="screenkt">Screen.kt<a class="headerlink" href="#screenkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>screenWidth</code></td>
+<td>获取屏幕宽度</td>
+</tr>
+<tr>
+<td><code>screenHeight</code></td>
+<td>获取屏幕高度</td>
+</tr>
+<tr>
+<td><code>Activity/Fragment.isFullScreen</code></td>
+<td>判断或设置是否全屏</td>
+</tr>
+<tr>
+<td><code>Activity/Fragment.isLandscape</code></td>
+<td>判断或设置是否横屏</td>
+</tr>
+<tr>
+<td><code>Activity/Fragment.isPortrait</code></td>
+<td>判断或设置是否竖屏</td>
+</tr>
+</tbody>
+</table>
+<h2 id="shellkt">Shell.kt<a class="headerlink" href="#shellkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>executeCmd(command)</code></td>
+<td>执行命令</td>
+</tr>
+</tbody>
+</table>
+<h2 id="statusbarkt">StatusBar.kt<a class="headerlink" href="#statusbarkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Activity.immersive([view], [darkMode])</code></td>
+<td>设置全透明状态栏或者状态栏颜色</td>
+</tr>
+<tr>
+<td><code>Activity.immersiveRes([color], [darkMode])</code></td>
+<td>和上面函数区别是使用颜色资源值</td>
+</tr>
+<tr>
+<td><code>Activity.darkMode([darkMode])</code></td>
+<td>设置状态栏文字颜色为黑色</td>
+</tr>
+<tr>
+<td><code>View.statusPadding()</code></td>
+<td>为 View 的 PaddingTop 增加一个状态栏高度</td>
+</tr>
+<tr>
+<td><code>Activity.setNavigationBar</code></td>
+<td>显示导航栏 (系统开启可以隐藏, 系统未开启不能开启)</td>
+</tr>
+<tr>
+<td><code>Activity.setFullscreen</code></td>
+<td>显示全屏</td>
+</tr>
+<tr>
+<td><code>Activity?.isNavigationBar</code></td>
+<td>是否存在导航栏</td>
+</tr>
+<tr>
+<td><code>Context?.navigationBarHeight</code></td>
+<td>导航栏高度</td>
+</tr>
+<tr>
+<td><code>Context?.statusBarHeight</code></td>
+<td>状态栏高度</td>
+</tr>
+</tbody>
+</table>
+<h2 id="stringkt">String.kt<a class="headerlink" href="#stringkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>randomUUIDString</code></td>
+<td>获取随机 UUID 字符串</td>
+</tr>
+<tr>
+<td><code>Long.toFileSizeString()</code></td>
+<td>数字转文件大小字符串</td>
+</tr>
+<tr>
+<td><code>Long.toShortFileSizeString()</code></td>
+<td>数字转精度位数较少的文件大小字符串</td>
+</tr>
+<tr>
+<td><code>String.limitLength(length: Int)</code></td>
+<td>限制字符长度</td>
+</tr>
+<tr>
+<td><code>String.isPhone()</code></td>
+<td>判断是否是手机号</td>
+</tr>
+<tr>
+<td><code>String.isDomainName()</code></td>
+<td>判断是否是域名</td>
+</tr>
+<tr>
+<td><code>String.isEmail()</code></td>
+<td>判断是否是邮箱</td>
+</tr>
+<tr>
+<td><code>String.isIP()</code></td>
+<td>判断是否是 IP 地址</td>
+</tr>
+<tr>
+<td><code>String.isWebUrl()</code></td>
+<td>判断是否是网址</td>
+</tr>
+<tr>
+<td><code>String.isIDCard15()</code></td>
+<td>判断是否是 15 位身份证号码</td>
+</tr>
+<tr>
+<td><code>String.isIDCard18()</code></td>
+<td>判断是否是 18 位身份证号码</td>
+</tr>
+<tr>
+<td><code>String.isJson()</code></td>
+<td>判断是否是 Json 字符串</td>
+</tr>
+<tr>
+<td><code>Float/Double.toNumberString(...)</code></td>
+<td>小数转为字符串，默认保留小数点后两位</td>
+</tr>
+</tbody>
+</table>
+<h2 id="threadskt">Threads.kt<a class="headerlink" href="#threadskt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isMainThread</code></td>
+<td>是否在主线程</td>
+</tr>
+<tr>
+<td><code>mainThread([delayMillis]) {...}</code></td>
+<td>在主线程运行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="toastkt">Toast.kt<a class="headerlink" href="#toastkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Context/Fragment.toast(message)</code></td>
+<td>吐司</td>
+</tr>
+<tr>
+<td><code>Context/Fragment.longToast(message)</code></td>
+<td>长吐司</td>
+</tr>
+</tbody>
+</table>
+<h2 id="viewkt">View.kt<a class="headerlink" href="#viewkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>View/List&lt;View&gt;.doOnClick {...}</code></td>
+<td>设置点击事件</td>
+</tr>
+<tr>
+<td><code>View/List&lt;View&gt;.doOnLongClick {...}</code></td>
+<td>设置长按事件</td>
+</tr>
+<tr>
+<td><code>View/List&lt;View&gt;.doOnDebouncingClick([interval]) {...}</code></td>
+<td>设置点击事件</td>
+</tr>
+<tr>
+<td><code>View/List&lt;View&gt;.doOnDebouncingLongClick([interval]) {...}</code></td>
+<td>设置长按事件</td>
+</tr>
+<tr>
+<td><code>View.expandClickArea(...)</code></td>
+<td>增大点击区域</td>
+</tr>
+<tr>
+<td><code>View.roundCorners</code></td>
+<td>设置圆角</td>
+</tr>
+<tr>
+<td><code>View?.isTouchedAt(x, y)</code></td>
+<td>判断控件是否在触摸位置上</td>
+</tr>
+<tr>
+<td><code>View.findTouchedChild(view, x, y)</code></td>
+<td>寻找触摸位置上的子控件</td>
+</tr>
+<tr>
+<td><code>View.locationOnScreen</code></td>
+<td>获取控件在屏幕的位置</td>
+</tr>
+<tr>
+<td><code>View.withStyledAttributes(set, attrs, [defStyleAttr], [defStyleRes]) {...}</code></td>
+<td>获取自定义属性</td>
+</tr>
+<tr>
+<td><code>View.rootWindowInsetsCompat</code></td>
+<td>获取根视图的 WinowInsetsCompat</td>
+</tr>
+<tr>
+<td><code>View.windowInsetsControllerCompat</code></td>
+<td>获取 WindowInsetsControllerCompat</td>
+</tr>
+</tbody>
+</table>
+<h2 id="viewmodelkt">ViewModel.kt<a class="headerlink" href="#viewmodelkt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>by ComponentActivity/Fragment.applicationViewModels()</code></td>
+<td>获取 Application 级别的 ViewModel 实例，支持 Hilt</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api">Api<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<p><a href="https://guoyanggit.github.io/AndroidUtils/api/utils-helper/">具体查看</a></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <!--
+  ~ Copyright (C) 2018 Drake, Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+
+<!-- Footer -->
+<footer class="md-footer">
+
+    <!-- Link to previous and/or next page -->
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+
+        <!-- Link to previous page -->
+        
+        <a href="../base/" class="md-footer__link md-footer__link--prev" rel="prev">
+            <div class="md-footer__button md-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+                <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+                    Base模块
+                </div>
+            </div>
+        </a>
+        
+
+        <!-- Link to next page -->
+        
+        <a href="../viewbinding-helper/" class="md-footer__link md-footer__link--next" rel="next">
+            <div class="md-footer__title">
+                <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+                    viewbinding模块
+                </div>
+            </div>
+            <div class="md-footer__button md-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Further information -->
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner md-grid">
+
+            <!-- Copyright and theme information -->
+            <div class="md-footer-copyright">
+                
+                <a href="https://github.com/liangjingkanji" target="_blank" rel="noopener">
+                    <div class="md-footer-copyright__highlight">
+                        Copyright &copy; 2022 - 2024 郭杨
+                    </div>
+                </a>
+                
+                
+            </div>
+
+            <!-- Social links -->
+            <div class="md-social">
+  
+</div>
+        </div>
+    </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>
