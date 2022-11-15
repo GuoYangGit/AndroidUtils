@@ -52,4 +52,4 @@ class MyApplication : Application(){
 
 ## Api
 
-[具体查看](/api/xlog-helper/)
+[具体查看](https://guoyanggit.github.io/AndroidUtils/api/xlog-helper/)

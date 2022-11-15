@@ -192,4 +192,4 @@ followViewModel.getFollowList(index)
 
 ## Api
 
-[具体查看](/api/base/)
+[具体查看](https://guoyanggit.github.io/AndroidUtils/api/base/)

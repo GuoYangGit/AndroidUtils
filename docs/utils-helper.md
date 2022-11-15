@@ -428,4 +428,4 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 
 ## Api
 
-[具体查看](/api/utils-helper/)
+[具体查看](https://guoyanggit.github.io/AndroidUtils/api/utils-helper/)
