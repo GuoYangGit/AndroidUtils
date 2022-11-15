@@ -210,12 +210,13 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 
 ## Fragment.kt
 
-| 用法                                  | 作用                                             |
-| ------------------------------------- | ------------------------------------------------ |
-| `Fragment.pressBackTwiceToExitApp(toastText, [delayMillis])` | 双击返回退出 App                                  |
-| `Fragment.pressBackTwiceToExitApp([delayMillis]) {...}` | 双击返回退出 App，自定义 Toast                      |
-| `Fragment.pressBackToNotExit()`                     | 点击返回不退出 App                                  |
-| `Fragment.doOnBackPressed {...}`                     | 监听手机的返回事件                                  |
+| 用法                                  | 作用                         |
+| ------------------------------------- |----------------------------|
+| `Fragment.withArguments("id" to 5)	` | 创建 Fragment 时伴随参数          |
+| `Fragment.pressBackTwiceToExitApp(toastText, [delayMillis])` | 双击返回退出 App                 |
+| `Fragment.pressBackTwiceToExitApp([delayMillis]) {...}` | 双击返回退出 App，自定义 Toast       |
+| `Fragment.pressBackToNotExit()`                     | 点击返回不退出 App                |
+| `Fragment.doOnBackPressed {...}`                     | 监听手机的返回事件                  |
 
 ## Intents.kt
 

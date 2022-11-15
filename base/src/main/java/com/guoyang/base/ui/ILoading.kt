@@ -9,7 +9,7 @@ interface ILoading {
      * 显示Loading
      * @param message 显示的信息
      */
-    fun showLoading(message: String)
+    fun showLoading(message: String = "")
 
     /**
      * 隐藏Loading

@@ -3,7 +3,16 @@
 package com.guoyang.utils_helper
 
 import androidx.annotation.StringRes
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+
+/**
+ * 创建 Fragment 时伴随参数
+ * @param pairs 参数, 例如: "key" to "value"
+ */
+fun <T : Fragment> T.withArguments(vararg pairs: Pair<String, *>) = apply {
+    arguments = bundleOf(*pairs)
+}
 
 /**
  * 双击返回退出 App
