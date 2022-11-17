@@ -4,7 +4,7 @@ package com.guoyang.utils_helper
 
 import androidx.lifecycle.*
 
-/***
+/**
  * App前后台切换监听
  * ```
  * AppForegroundObserver().observe(this) {

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.guoyang.base.ui.IView
 
-/***
+/**
  * 通用的Fragment基类
  * @author Yang.Guo on 2021/6/3.
  */
