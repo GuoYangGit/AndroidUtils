@@ -13,6 +13,8 @@ allprojects {
 
 添加依赖：
 
+<img src="https://jitpack.io/v/GuoYangGit/AndroidUtils.svg"/>
+
 ```groovy
 api "com.github.GuoYangGit.AndroidUtils:viewbinding-helper:xxx"
 ```

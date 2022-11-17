@@ -13,6 +13,8 @@ allprojects {
 
 添加配置和依赖：
 
+<img src="https://jitpack.io/v/GuoYangGit/AndroidUtils.svg"/>
+
 > 根据自己需求进行选择
 
 ```groovy

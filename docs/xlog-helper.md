@@ -15,6 +15,8 @@ allprojects {
 
 添加配置和依赖：
 
+<img src="https://jitpack.io/v/GuoYangGit/AndroidUtils.svg"/>
+
 ```groovy
 api "com.github.GuoYangGit.AndroidUtils:xloghelper:xxx"
 ```

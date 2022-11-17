@@ -1,0 +1,1 @@
+sourceset_dependencies='{":viewbinding-helper:dokkaHtml/androidTestRelease":[],":viewbinding-helper:dokkaHtml/debug":[],":viewbinding-helper:dokkaHtml/main":[],":viewbinding-helper:dokkaHtml/release":[],":viewbinding-helper:dokkaHtml/testFixtures":[],":viewbinding-helper:dokkaHtml/testFixturesDebug":[],":viewbinding-helper:dokkaHtml/testFixturesRelease":[]}'

@@ -7,9 +7,9 @@
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/GitHub-大乘老祖-brightgreen"/>
-<img src="https://img.shields.io/badge/language-kotlin-orange.svg"/>
-<img src="https://img.shields.io/badge/license-Apache-blue"/>
+<img src="https://jitpack.io/v/GuoYangGit/AndroidUtils.svg"/>
+<img src="https://img.shields.io/github/languages/top/GuoYangGit/AndroidUtils">
+<img src="https://img.shields.io/github/workflow/status/GuoYangGit/AndroidUtils/Build">
 </p>
 
 [开始阅读](./README.md)
