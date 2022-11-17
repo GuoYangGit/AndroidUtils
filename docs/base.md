@@ -1,5 +1,3 @@
-# Android框架基础模块
-
 > 该模块是 `Android` 项目快速开发的基础模块，包含 `Activity/Fragment` 基类、常用扩展类、页面状态类等。
 
 ## Gradle
@@ -36,8 +34,6 @@ open class MvvmApplication : BaseApp() {
     }
 }
 ```
-
-
 
 ### Activity
 
@@ -122,15 +118,15 @@ eventLiveData.observe(this){
 
 权限相关扩展类
 
-| 方法                                                      | 说明                         |
-| --------------------------------------------------------- | ---------------------------- |
-| `Activity/Fragment.requestReadOrWritePermissions{}`       | 读写权限(兼容Android 13)     |
-| `Activity/Fragment.requestCameraPermissions{}`            | 相机、录音权限               |
-| `Activity/Fragment.requestLocationPermissions{}`          | 定位权限(兼容Android 12)     |
-| `Activity/Fragment.requestNotificationPermissions{}`      | 通知权限(兼容Android 13以下) |
-| `Activity/Fragment.requestSystemAlertWindowPermissions{}` | 悬浮窗权限                   |
-| `Activity/Fragment.requestWriteSettingPermissions{}`      | 系统设置权限                 |
-| `Activity/Fragment.requestInstallPackagePermissions{}`    | 允许安装未知来源权限         |
+| 方法                                                      | 说明                           |
+| --------------------------------------------------------- | ------------------------------ |
+| `Activity/Fragment.requestReadOrWritePermissions{}`       | 读写权限(兼容 Android 13)      |
+| `Activity/Fragment.requestCameraPermissions{}`            | 相机、录音权限                 |
+| `Activity/Fragment.requestLocationPermissions{}`          | 定位权限(兼容 Android 12)      |
+| `Activity/Fragment.requestNotificationPermissions{}`      | 通知权限(兼容 Android 13 以下) |
+| `Activity/Fragment.requestSystemAlertWindowPermissions{}` | 悬浮窗权限                     |
+| `Activity/Fragment.requestWriteSettingPermissions{}`      | 系统设置权限                   |
+| `Activity/Fragment.requestInstallPackagePermissions{}`    | 允许安装未知来源权限           |
 
 使用示例：
 
@@ -145,20 +141,20 @@ requestReadOrWritePermissions { allGranted, _, _ ->
 
 `RecyclerView` 扩展类
 
-| 方法                                                         | 说明           |
-| ------------------------------------------------------------ | -------------- |
-| `Rv.linear(orientation: Int,reverseLayout: Boolean)`         | 创建线性布局   |
+| 方法                                                              | 说明           |
+| ----------------------------------------------------------------- | -------------- |
+| `Rv.linear(orientation: Int,reverseLayout: Boolean)`              | 创建线性布局   |
 | `Rv.grid(spanCount: Int,orientation: Int,reverseLayout: Boolean)` | 创建网格布局   |
-| `Rv.staggered(spanCount: Int,orientation: Int)`              | 创建瀑布流布局 |
-| `Rv.divider(block: DefaultDecoration.() -> Unit)`            | 创建分割线     |
+| `Rv.staggered(spanCount: Int,orientation: Int)`                   | 创建瀑布流布局 |
+| `Rv.divider(block: DefaultDecoration.() -> Unit)`                 | 创建分割线     |
 
 ### ViewExt
 
 `View` 扩展类
 
-| 方法                     | 说明         |
-| ------------------------ | ------------ |
-| `View.doOnDoubleClick{}` | View双击事件 |
+| 方法                     | 说明          |
+| ------------------------ | ------------- |
+| `View.doOnDoubleClick{}` | View 双击事件 |
 
 ### UiSate
 
@@ -185,10 +181,10 @@ followViewModel.getFollowList(index)
 
 通用自定义 `View` 封装
 
-| 类                     | 说明                                                         |
-| ---------------------- | ------------------------------------------------------------ |
-| `DefaultDecoration`    | RecyclerView最强大的分割线工具                               |
-| `NestedScrollableHost` | 此类用于解决 ViewPager2  嵌套 ViewPager2 或者 RecyclerView 等相互嵌套的冲突问题 |
+| 类                     | 说明                                                                           |
+| ---------------------- | ------------------------------------------------------------------------------ |
+| `DefaultDecoration`    | RecyclerView 最强大的分割线工具                                                |
+| `NestedScrollableHost` | 此类用于解决 ViewPager2 嵌套 ViewPager2 或者 RecyclerView 等相互嵌套的冲突问题 |
 
 ## Api
 

@@ -1,5 +1,3 @@
-# ViewBinding工具类
-
 ## Gradle
 
 在根目录的 `build.gradle` 添加：
@@ -69,8 +67,6 @@ tabLayout.doOnCustomTabSelected<LayoutBottomTabBinding>(
     tvTitle.textSize = 10f
   })
 ```
-
-
 
 ## 封装基类
 

@@ -1,5 +1,3 @@
-# Utils-helper
-
 > 是一个简化 `Android` 开发的 `Kotlin` 工具库，可以使代码更加简洁易读。**目前有超过 500 个常用方法或属性，能有效提高开发效率**。
 
 ## Gradle
@@ -25,23 +23,23 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 
 ## Activity.kt
 
-| 方法                                                         | 说明                                    |
-| ------------------------------------------------------------ | --------------------------------------- |
-| `[Activity].startActivity<T>("id" to 5)`                     | 启动 Activity                           |
-| `Activity.finishWithResult("id" to 5, "name" to name)`       | 关闭 Activity 并返回结果                |
-| `activityList`                                               | 获取 Activity 栈链表                    |
-| `topActivity`                                                | 获取栈顶 Activity                       |
-| `isActivityExistsInStack<SomeOtherActivity>`                 | 判断 Activity 是否存在栈中              |
-| `finishActivity<SomeOtherActivity>`                          | 结束某个 Activity                       |
-| `finishToActivity<SomeOtherActivity>`                        | 结束到某个 Activity                     |
-| `finishAllActivities`                                        | 结束所有 Activity                       |
-| `finishAllActivitiesExcept<T>`                               | 结束除某个 Activity 之外的所有 Activity |
-| `finishAllActivitiesExceptNewest`                            | 结束除最新 Activity 之外的所有 Activity |
+| 方法                                                                  | 说明                                    |
+| --------------------------------------------------------------------- | --------------------------------------- |
+| `[Activity].startActivity<T>("id" to 5)`                              | 启动 Activity                           |
+| `Activity.finishWithResult("id" to 5, "name" to name)`                | 关闭 Activity 并返回结果                |
+| `activityList`                                                        | 获取 Activity 栈链表                    |
+| `topActivity`                                                         | 获取栈顶 Activity                       |
+| `isActivityExistsInStack<SomeOtherActivity>`                          | 判断 Activity 是否存在栈中              |
+| `finishActivity<SomeOtherActivity>`                                   | 结束某个 Activity                       |
+| `finishToActivity<SomeOtherActivity>`                                 | 结束到某个 Activity                     |
+| `finishAllActivities`                                                 | 结束所有 Activity                       |
+| `finishAllActivitiesExcept<T>`                                        | 结束除某个 Activity 之外的所有 Activity |
+| `finishAllActivitiesExceptNewest`                                     | 结束除最新 Activity 之外的所有 Activity |
 | `ComponentActivity.pressBackTwiceToExitApp(toastText, [delayMillis])` | 双击返回退出 App                        |
-| `ComponentActivity.pressBackTwiceToExitApp([delayMillis]) {...}` | 双击返回退出 App，自定义 Toast          |
-| `ComponentActivity.pressBackToNotExit()`                     | 点击返回不退出 App                      |
-| `ComponentActivity.doOnBackPressed {...}`                    | 监听手机的返回事件                      |
-| `Context.isPermissionGranted(permission)`                    | 判断是否有权限                          |
+| `ComponentActivity.pressBackTwiceToExitApp([delayMillis]) {...}`      | 双击返回退出 App，自定义 Toast          |
+| `ComponentActivity.pressBackToNotExit()`                              | 点击返回不退出 App                      |
+| `ComponentActivity.doOnBackPressed {...}`                             | 监听手机的返回事件                      |
+| `Context.isPermissionGranted(permission)`                             | 判断是否有权限                          |
 
 ## Application.kt
 
@@ -60,9 +58,9 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 
 ## AppForegroundObserver
 
-| 用法                            | 作用               |
-| ------------------------------- | ------------------ |
-| ``AppForegroundObserver {...}`` | App 前后台切换监听 |
+| 用法                          | 作用               |
+| ----------------------------- | ------------------ |
+| `AppForegroundObserver {...}` | App 前后台切换监听 |
 
 ## Bluetooth.kt
 
@@ -90,45 +88,45 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 
 ## Crash.kt
 
-| 用法                               | 作用               |
-| ---------------------------------- | ------------------ |
-| `saveCrashLogLocally([dirPath])`   | 保存崩溃日志到本地 |
-| `handleUncaughtException {...}`    | 处理未捕获的异常   |
-| `handleMainThreadException  {...}` | 处理主线程的异常   |
+| 用法                              | 作用               |
+| --------------------------------- | ------------------ |
+| `saveCrashLogLocally([dirPath])`  | 保存崩溃日志到本地 |
+| `handleUncaughtException {...}`   | 处理未捕获的异常   |
+| `handleMainThreadException {...}` | 处理主线程的异常   |
 
 ## DateTime.kt
 
-| 用法                                                         | 作用                     |
-| ------------------------------------------------------------ | ------------------------ |
-| `Instant.format(pattern, [zone], [locale])`                  | Instant 转字符串         |
-| `LocalDateTime.format(pattern, [locale])`                    | LocalDateTime 转字符串   |
-| `LocalDate.format(pattern, [locale])`                        | LocalDate 转字符串       |
-| `LocalDateTime.toInstant(pattern, [zone])`                   | LocalDateTime 转 Instant |
-| `Instant.toLocalDateTime(pattern, [zone])`                   | Instant 转 LocalDateTime |
-| `LocalDateTime.toEpochSecond(pattern, [zone])`               | LocalDateTime 转秒数     |
-| `LocalDateTime.toEpochMilli(pattern, [zone])`                | LocalDateTime 转毫秒     |
-| `String.toInstant(pattern, [zone])`                          | 字符串转 Instant         |
-| `String.toLocalDateTime(pattern)`                            | 字符串转 LocalDateTime   |
-| `String.toLocalDate(pattern)`                                | 字符串转 LocalDate       |
-| `String.toEpochMilliseconds(pattern)`                        | 字符串转毫秒             |
-| `String.toEpochSeconds(pattern)`                             | 字符串转秒数             |
-| `LocalDateTime/LocalDate.isToday([zone])`                    | 判断是不是今天           |
-| `LocalDateTime/LocalDate.isYesterday([zone])`                | 判断是不是昨天           |
-| `LocalDateTime/LocalDate.firstDayOfYear()`                   | 今年的第一天             |
-| `LocalDateTime/LocalDate.lastDayOfYear()`                    | 今年的最后一天           |
-| `LocalDateTime/LocalDate.firstDayOfNextYear()`               | 名年的第一天             |
-| `LocalDateTime/LocalDate.firstDayOfLastYear()`               | 去年的第一天             |
-| `LocalDateTime/LocalDate.firstDayOfMonth()`                  | 这个月的第一天           |
-| `LocalDateTime/LocalDate.lastDayOfMonth()`                   | 这个月的最后一天         |
-| `LocalDateTime/LocalDate.firstDayOfNextMonth()`              | 下个月的第一天           |
-| `LocalDateTime/LocalDate.firstDayOfLastMonth()`              | 上个月的第一天           |
-| `LocalDateTime/LocalDate.firstInMonth(dayOfWeek)`            | 这个月的第一个周几       |
-| `LocalDateTime/LocalDate.lastInMonth(dayOfWeek)`             | 这个月的最后一个周几     |
+| 用法                                                           | 作用                     |
+| -------------------------------------------------------------- | ------------------------ |
+| `Instant.format(pattern, [zone], [locale])`                    | Instant 转字符串         |
+| `LocalDateTime.format(pattern, [locale])`                      | LocalDateTime 转字符串   |
+| `LocalDate.format(pattern, [locale])`                          | LocalDate 转字符串       |
+| `LocalDateTime.toInstant(pattern, [zone])`                     | LocalDateTime 转 Instant |
+| `Instant.toLocalDateTime(pattern, [zone])`                     | Instant 转 LocalDateTime |
+| `LocalDateTime.toEpochSecond(pattern, [zone])`                 | LocalDateTime 转秒数     |
+| `LocalDateTime.toEpochMilli(pattern, [zone])`                  | LocalDateTime 转毫秒     |
+| `String.toInstant(pattern, [zone])`                            | 字符串转 Instant         |
+| `String.toLocalDateTime(pattern)`                              | 字符串转 LocalDateTime   |
+| `String.toLocalDate(pattern)`                                  | 字符串转 LocalDate       |
+| `String.toEpochMilliseconds(pattern)`                          | 字符串转毫秒             |
+| `String.toEpochSeconds(pattern)`                               | 字符串转秒数             |
+| `LocalDateTime/LocalDate.isToday([zone])`                      | 判断是不是今天           |
+| `LocalDateTime/LocalDate.isYesterday([zone])`                  | 判断是不是昨天           |
+| `LocalDateTime/LocalDate.firstDayOfYear()`                     | 今年的第一天             |
+| `LocalDateTime/LocalDate.lastDayOfYear()`                      | 今年的最后一天           |
+| `LocalDateTime/LocalDate.firstDayOfNextYear()`                 | 名年的第一天             |
+| `LocalDateTime/LocalDate.firstDayOfLastYear()`                 | 去年的第一天             |
+| `LocalDateTime/LocalDate.firstDayOfMonth()`                    | 这个月的第一天           |
+| `LocalDateTime/LocalDate.lastDayOfMonth()`                     | 这个月的最后一天         |
+| `LocalDateTime/LocalDate.firstDayOfNextMonth()`                | 下个月的第一天           |
+| `LocalDateTime/LocalDate.firstDayOfLastMonth()`                | 上个月的第一天           |
+| `LocalDateTime/LocalDate.firstInMonth(dayOfWeek)`              | 这个月的第一个周几       |
+| `LocalDateTime/LocalDate.lastInMonth(dayOfWeek)`               | 这个月的最后一个周几     |
 | `LocalDateTime/LocalDate.dayOfWeekInMonth(ordinal, dayOfWeek)` | 这个月的第几个周几       |
-| `LocalDateTime/LocalDate.next(dayOfWeek)`                    | 下一个周几，不包含今天   |
-| `LocalDateTime/LocalDate.nextOrSame(dayOfWeek)`              | 下一个周几，包含今天     |
-| `LocalDateTime/LocalDate.previous(dayOfWeek)`                | 上一个周几，不包含今天   |
-| `LocalDateTime/LocalDate.previousOrSame(dayOfWeek)`          | 上一个周几，包含今天     |
+| `LocalDateTime/LocalDate.next(dayOfWeek)`                      | 下一个周几，不包含今天   |
+| `LocalDateTime/LocalDate.nextOrSame(dayOfWeek)`                | 下一个周几，包含今天     |
+| `LocalDateTime/LocalDate.previous(dayOfWeek)`                  | 上一个周几，不包含今天   |
+| `LocalDateTime/LocalDate.previousOrSame(dayOfWeek)`            | 上一个周几，包含今天     |
 
 ## DeviceInfo.kt
 
@@ -210,13 +208,13 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 
 ## Fragment.kt
 
-| 用法                                  | 作用                         |
-| ------------------------------------- |----------------------------|
-| `Fragment.withArguments("id" to 5)	` | 创建 Fragment 时伴随参数          |
-| `Fragment.pressBackTwiceToExitApp(toastText, [delayMillis])` | 双击返回退出 App                 |
-| `Fragment.pressBackTwiceToExitApp([delayMillis]) {...}` | 双击返回退出 App，自定义 Toast       |
-| `Fragment.pressBackToNotExit()`                     | 点击返回不退出 App                |
-| `Fragment.doOnBackPressed {...}`                     | 监听手机的返回事件                  |
+| 用法                                                         | 作用                           |
+| ------------------------------------------------------------ | ------------------------------ |
+| `Fragment.withArguments("id" to 5) `                         | 创建 Fragment 时伴随参数       |
+| `Fragment.pressBackTwiceToExitApp(toastText, [delayMillis])` | 双击返回退出 App               |
+| `Fragment.pressBackTwiceToExitApp([delayMillis]) {...}`      | 双击返回退出 App，自定义 Toast |
+| `Fragment.pressBackToNotExit()`                              | 点击返回不退出 App             |
+| `Fragment.doOnBackPressed {...}`                             | 监听手机的返回事件             |
 
 ## Intents.kt
 
@@ -245,7 +243,7 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 
 ## Keyboard.kt
 
-| 用法                      | 作用             |
+| 用法                     | 作用             |
 | ------------------------ | ---------------- |
 | `View.showKeyboard()`    | 显示键盘         |
 | `View.hideKeyboard()`    | 隐藏键盘         |
@@ -273,16 +271,16 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 
 ## Network.kt
 
-| 用法                         | 作用                   |
-| ---------------------------- | ---------------------- |
-| `isNetworkAvailable`         | 判断网络是否可用       |
-| `isWifiConnected`            | 判断网络是否是  Wifi   |
-| `isMobileData`               | 判断网络是否是移动数据 |
-| `isWifiEnabled`              | 判断 Wifi 是否打开     |
+| 用法                         | 作用                      |
+| ---------------------------- | ------------------------- |
+| `isNetworkAvailable`         | 判断网络是否可用          |
+| `isWifiConnected`            | 判断网络是否是 Wifi       |
+| `isMobileData`               | 判断网络是否是移动数据    |
+| `isWifiEnabled`              | 判断 Wifi 是否打开        |
 | `ScanResult.is24GHz`         | 判断扫描结果是否是 2.4GHz |
-| `ScanResult.is5GHz`          | 判断扫描结果是否是 5GHz |
-| `NetworkAvailableLiveData()` | 监听网络状态改变       |
-| `WifiListLiveData()`         | 监听扫描的 Wifi 列表   |
+| `ScanResult.is5GHz`          | 判断扫描结果是否是 5GHz   |
+| `NetworkAvailableLiveData()` | 监听网络状态改变          |
+| `WifiListLiveData()`         | 监听扫描的 Wifi 列表      |
 
 ## Paths.kt
 
@@ -327,8 +325,8 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 
 ## Rom.kt
 
-| 用法             | 作用               |
-| ---------------- | ---------------- |
+| 用法             | 作用                |
+| ---------------- | ------------------- |
 | `isXiaomiRom`    | 判断是否是小米 Rom  |
 | `isHuaweiRom`    | 判断是否是华为 Rom  |
 | `isOppoRom`      | 判断是否是 OPPO Rom |
@@ -354,41 +352,41 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 
 ## Shell.kt
 
-| 用法                                     | 作用               |
-| --------------------------------------- | ------------------ |
-| `executeCmd(command)`                   | 执行命令             |
+| 用法                  | 作用     |
+| --------------------- | -------- |
+| `executeCmd(command)` | 执行命令 |
 
 ## StatusBar.kt
 
-| 用法                                     | 作用               |
-| --------------------------------------- | ------------------ |
-| `Activity.immersive([view], [darkMode])`                   | 设置全透明状态栏或者状态栏颜色             |
-| `Activity.immersiveRes([color], [darkMode])`                   | 和上面函数区别是使用颜色资源值             |
-| `Activity.darkMode([darkMode])`                   | 设置状态栏文字颜色为黑色             |
-| `View.statusPadding()`                   | 为 View 的 PaddingTop 增加一个状态栏高度             |
-| `Activity.setNavigationBar`                   | 显示导航栏 (系统开启可以隐藏, 系统未开启不能开启)             |
-| `Activity.setFullscreen`                   | 显示全屏             |
-| `Activity?.isNavigationBar`                   | 是否存在导航栏             |
-| `Context?.navigationBarHeight`                   | 导航栏高度             |
-| `Context?.statusBarHeight`                   | 状态栏高度             |
+| 用法                                         | 作用                                              |
+| -------------------------------------------- | ------------------------------------------------- |
+| `Activity.immersive([view], [darkMode])`     | 设置全透明状态栏或者状态栏颜色                    |
+| `Activity.immersiveRes([color], [darkMode])` | 和上面函数区别是使用颜色资源值                    |
+| `Activity.darkMode([darkMode])`              | 设置状态栏文字颜色为黑色                          |
+| `View.statusPadding()`                       | 为 View 的 PaddingTop 增加一个状态栏高度          |
+| `Activity.setNavigationBar`                  | 显示导航栏 (系统开启可以隐藏, 系统未开启不能开启) |
+| `Activity.setFullscreen`                     | 显示全屏                                          |
+| `Activity?.isNavigationBar`                  | 是否存在导航栏                                    |
+| `Context?.navigationBarHeight`               | 导航栏高度                                        |
+| `Context?.statusBarHeight`                   | 状态栏高度                                        |
 
 ## String.kt
 
-| 用法                              | 作用                               |
-| --------------------------------- | ---------------------------------- |
-| `randomUUIDString`                | 获取随机 UUID 字符串               |
-| `Long.toFileSizeString()`         | 数字转文件大小字符串               |
-| `Long.toShortFileSizeString()`    | 数字转精度位数较少的文件大小字符串  |
-| `String.limitLength(length: Int)` | 限制字符长度                      |
-| `String.isPhone()`                | 判断是否是手机号                   |
-| `String.isDomainName()`           | 判断是否是域名                     |
-| `String.isEmail()`                | 判断是否是邮箱                     |
-| `String.isIP()`                   | 判断是否是 IP 地址                 |
-| `String.isWebUrl()`               | 判断是否是网址                     |
-| `String.isIDCard15()`             | 判断是否是 15 位身份证号码         |
-| `String.isIDCard18()`             | 判断是否是 18 位身份证号码         |
-| `String.isJson()`                 | 判断是否是 Json 字符串             |
-| `Float/Double.toNumberString(...)` | 小数转为字符串，默认保留小数点后两位  |
+| 用法                               | 作用                                 |
+| ---------------------------------- | ------------------------------------ |
+| `randomUUIDString`                 | 获取随机 UUID 字符串                 |
+| `Long.toFileSizeString()`          | 数字转文件大小字符串                 |
+| `Long.toShortFileSizeString()`     | 数字转精度位数较少的文件大小字符串   |
+| `String.limitLength(length: Int)`  | 限制字符长度                         |
+| `String.isPhone()`                 | 判断是否是手机号                     |
+| `String.isDomainName()`            | 判断是否是域名                       |
+| `String.isEmail()`                 | 判断是否是邮箱                       |
+| `String.isIP()`                    | 判断是否是 IP 地址                   |
+| `String.isWebUrl()`                | 判断是否是网址                       |
+| `String.isIDCard15()`              | 判断是否是 15 位身份证号码           |
+| `String.isIDCard18()`              | 判断是否是 18 位身份证号码           |
+| `String.isJson()`                  | 判断是否是 Json 字符串               |
+| `Float/Double.toNumberString(...)` | 小数转为字符串，默认保留小数点后两位 |
 
 ## Threads.kt
 
@@ -399,27 +397,27 @@ api "com.github.GuoYangGit.AndroidUtils:utils-helper:xxx"
 
 ## Toast.kt
 
-| 用法                                  | 作用                          |
-| ------------------------------------- | ----------------------------- |
-| `Context/Fragment.toast(message)`     | 吐司                          |
-| `Context/Fragment.longToast(message)` | 长吐司                        |
+| 用法                                  | 作用   |
+| ------------------------------------- | ------ |
+| `Context/Fragment.toast(message)`     | 吐司   |
+| `Context/Fragment.longToast(message)` | 长吐司 |
 
 ## View.kt
 
-| 用法                                                         | 作用                              |
-| ------------------------------------------------------------ | --------------------------------- |
-| `View/List<View>.doOnClick {...}`                            | 设置点击事件                      |
-| `View/List<View>.doOnLongClick {...}`                        | 设置长按事件                      |
-| `View/List<View>.doOnDebouncingClick([interval]) {...}`      | 设置点击事件                      |
-| `View/List<View>.doOnDebouncingLongClick([interval]) {...}`  | 设置长按事件                      |
-| `View.expandClickArea(...)`                                  | 增大点击区域                      |
-| `View.roundCorners`                                          | 设置圆角                          |
-| `View?.isTouchedAt(x, y)`                                    | 判断控件是否在触摸位置上          |
-| `View.findTouchedChild(view, x, y)`                          | 寻找触摸位置上的子控件            |
-| `View.locationOnScreen`                                      | 获取控件在屏幕的位置              |
+| 用法                                                                         | 作用                              |
+| ---------------------------------------------------------------------------- | --------------------------------- |
+| `View/List<View>.doOnClick {...}`                                            | 设置点击事件                      |
+| `View/List<View>.doOnLongClick {...}`                                        | 设置长按事件                      |
+| `View/List<View>.doOnDebouncingClick([interval]) {...}`                      | 设置点击事件                      |
+| `View/List<View>.doOnDebouncingLongClick([interval]) {...}`                  | 设置长按事件                      |
+| `View.expandClickArea(...)`                                                  | 增大点击区域                      |
+| `View.roundCorners`                                                          | 设置圆角                          |
+| `View?.isTouchedAt(x, y)`                                                    | 判断控件是否在触摸位置上          |
+| `View.findTouchedChild(view, x, y)`                                          | 寻找触摸位置上的子控件            |
+| `View.locationOnScreen`                                                      | 获取控件在屏幕的位置              |
 | `View.withStyledAttributes(set, attrs, [defStyleAttr], [defStyleRes]) {...}` | 获取自定义属性                    |
-| `View.rootWindowInsetsCompat`                                | 获取根视图的 WinowInsetsCompat    |
-| `View.windowInsetsControllerCompat`                          | 获取 WindowInsetsControllerCompat |
+| `View.rootWindowInsetsCompat`                                                | 获取根视图的 WinowInsetsCompat    |
+| `View.windowInsetsControllerCompat`                                          | 获取 WindowInsetsControllerCompat |
 
 ## ViewModel.kt
 

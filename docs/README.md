@@ -1,5 +1,3 @@
-# Android开发工具类
-
 ## Gradle
 
 在根目录的 `build.gradle` 添加：
@@ -14,8 +12,6 @@ allprojects {
 ```
 
 添加配置和依赖：
-
-[![](https://jitpack.io/v/GuoYangGit/AndroidUtils.svg)](https://jitpack.io/#GuoYangGit/AndroidUtils)
 
 > 根据自己需求进行选择
 
@@ -33,10 +29,9 @@ api "com.github.GuoYangGit.AndroidUtils:viewbinding-helper:$android_utils"
 
 ## 模块
 
-| 名称                                          | 简介                      |
-| --------------------------------------------- | ------------------------- |
-| [base](./base.md)                             | Android 框架基础库        |
-| [xloghelper](./xlog-helper.md)                | Log日志库                 |
-| [utils-helpe](./utils-helper.md)              | Kotlin工具类              |
-| [viewbinding-helper](./viewbinding-helper.md) | 视图绑定ViewBinding工具类 |
-
+| 名称                                          | 简介                        |
+| --------------------------------------------- | --------------------------- |
+| [base](./base.md)                             | Android 框架基础库          |
+| [xloghelper](./xlog-helper.md)                | Log 日志库                  |
+| [utils-helpe](./utils-helper.md)              | Kotlin 工具类               |
+| [viewbinding-helper](./viewbinding-helper.md) | 视图绑定 ViewBinding 工具类 |

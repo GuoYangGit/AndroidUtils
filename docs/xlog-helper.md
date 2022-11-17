@@ -1,5 +1,3 @@
-# Log日志库(基于XLog实现)
-
 > 该库主要用于日志打印和本地化保存，考虑性能方面的问题，基于 [mars-xlog](https://github.com/Tencent/mars) 实现。
 
 ## Gradle
