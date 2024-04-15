@@ -4,7 +4,6 @@ import android.os.Bundle
 
 /**
  * Activity、Fragment的基类接口
- * @author Yang.Guo on 2021/6/3.
  */
 interface IView {
     /**

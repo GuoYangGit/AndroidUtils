@@ -6,14 +6,14 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
 import android.widget.FrameLayout
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 
 /**
- * 此类用于解决 ViewPager2  嵌套 ViewPager2 或者 RecyclerView 等相互嵌套的冲突问题
- * @author yang.guo on 2022/10/25
+ * 此类用于解决 [ViewPager2]  嵌套 [ViewPager2] 或者 [RecyclerView] 等相互嵌套的冲突问题
  */
 class NestedScrollableHost : FrameLayout {
     constructor(context: Context) : super(context)

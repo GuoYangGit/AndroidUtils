@@ -12,11 +12,11 @@ dokkaHtml {
 
 android {
     namespace 'com.guoyang.base'
-    compileSdkVersion 33
+    compileSdkVersion compile_sdk
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 33
+        minSdk min_sdk
+        targetSdk compile_sdk
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // 开启module混淆
         consumerProguardFiles "consumer-rules.pro"
@@ -27,18 +27,18 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //androidx
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     //kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20"
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation "androidx.fragment:fragment-ktx:1.5.3"
+    implementation "androidx.fragment:fragment-ktx:1.5.6"
 
     //lifecycle
-    def lifecycleVersion = '2.5.1'
+    def lifecycleVersion = '2.7.0'
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycleVersion}"
     implementation "androidx.lifecycle:lifecycle-common-java8:${lifecycleVersion}"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycleVersion}"

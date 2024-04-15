@@ -2,7 +2,6 @@ package com.guoyang.base.ui
 
 /**
  * 加载框接口
- * @author yang.guo on 2022/10/26
  */
 interface ILoading {
     /**

@@ -22,7 +22,6 @@ import kotlin.math.roundToInt
 
 /**
  * 最强大的分割线工具
- * @author yang.guo on 2022/10/25
  * 1. 分隔图片
  * 2. 分隔颜色
  * 3. 分隔间距

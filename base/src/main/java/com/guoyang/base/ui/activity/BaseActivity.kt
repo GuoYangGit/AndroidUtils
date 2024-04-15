@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.guoyang.base.ui.IView
 
 /**
- * 通用的[Activity]基类
- * @author Yang.Guo on 2021/6/3.
+ * 通用的[AppCompatActivity]基类
  */
 abstract class BaseActivity : AppCompatActivity(), IView {
 

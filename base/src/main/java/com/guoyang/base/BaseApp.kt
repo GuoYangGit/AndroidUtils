@@ -5,8 +5,7 @@ import android.content.Context
 import androidx.multidex.MultiDex
 
 /**
- * 提供基类的Application
- * @author Yang.Guo on 2021/5/31.
+ * 提供基类的[Application]
  */
 open class BaseApp : Application() {
 

@@ -11,7 +11,6 @@ import androidx.lifecycle.*
  *     Log.d("AppLifeLiveData", "当前是否在前台: $it")
  * })
  * ```
- * @author Yang.Guo on 2021/5/31.
  */
 class AppForegroundObserver : LifecycleEventObserver {
     private var observer: Observer<Boolean>? = null

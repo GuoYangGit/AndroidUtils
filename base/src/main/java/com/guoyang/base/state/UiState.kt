@@ -2,7 +2,6 @@ package com.guoyang.base.state
 
 /**
  * 数据和UI相关的状态类
- * @author Yang.Guo on 2021/6/3.
  */
 sealed class UiState<out T> {
     companion object {
